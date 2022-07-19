@@ -58,7 +58,7 @@ namespace Task6._8
             }
         }
 
-        private static void ShowStats(List<Fighter> fighters)
+        private void ShowStats(List<Fighter> fighters)
         {
             Console.WindowWidth = 155;
 
@@ -69,7 +69,7 @@ namespace Task6._8
             }
         }
 
-        private static void ShowSkills(List<Fighter> fighters)
+        private void ShowSkills(List<Fighter> fighters)
         {
             for (int i = 0; i < fighters.Count; i++)
             {
@@ -78,7 +78,7 @@ namespace Task6._8
             }
         }
 
-        private static void Fight(List<Fighter> fighters)
+        private void Fight(List<Fighter> fighters)
         {
             ShowStats(fighters);
             Fighter firstFighter = fighters[ChooseFighterIndex("первого", fighters.Count) - 1];
@@ -104,7 +104,7 @@ namespace Task6._8
             }
         }
 
-        private static int ChooseFighterIndex(string text, int countOfFighters)
+        private int ChooseFighterIndex(string text, int countOfFighters)
         {
             Console.WriteLine($"Выберите {text} бойца:");
             int fighterIndex = 0;
@@ -127,7 +127,7 @@ namespace Task6._8
             return fighterIndex;
         }
 
-        private static void WriteWinner(Fighter firstFighter, Fighter secondFighter)
+        private void WriteWinner(Fighter firstFighter, Fighter secondFighter)
         {
             if (firstFighter.IsLive())
             {
@@ -139,7 +139,7 @@ namespace Task6._8
             }
         }
 
-        private static string GetRandomPhrase()
+        private string GetRandomPhrase()
         {
             Random random = new Random();
             string[] phrases = new string[5]
@@ -154,7 +154,7 @@ namespace Task6._8
             return randomPhrase;
         }
         
-        private static string GetRandomWord()
+        private string GetRandomWord()
         {
             Random random = new Random();
             string[] words = new string[4]
