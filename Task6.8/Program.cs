@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace Task6._8
@@ -6,6 +6,15 @@ namespace Task6._8
     internal class Program
     {
         static void Main(string[] args)
+        {
+            Arena arena = new Arena();
+            arena.Work();
+        }
+    }
+
+    class Arena
+    {
+        public void Work()
         {
             int defaultWidth = Console.WindowWidth;
             bool isWork = true;
@@ -87,14 +96,7 @@ namespace Task6._8
                     Console.WriteLine("---------------------------------------------------------------------------------------------------");
                 }
 
-                if (firstFighter.IsLive())
-                {
-                    Console.WriteLine($"\nВыйграл: {firstFighter.Name}");
-                }
-                else
-                {
-                    Console.WriteLine($"\nВыйграл: {secondFighter.Name}");
-                }
+                WriteWinner(firstFighter, secondFighter);
             }
             else
             {
@@ -125,6 +127,18 @@ namespace Task6._8
             return fighterIndex;
         }
 
+        private static void WriteWinner(Fighter firstFighter, Fighter secondFighter)
+        {
+            if (firstFighter.IsLive())
+            {
+                Console.WriteLine($"\nВыйграл: {firstFighter.Name}");
+            }
+            else
+            {
+                Console.WriteLine($"\nВыйграл: {secondFighter.Name}");
+            }
+        }
+
         private static string GetRandomPhrase()
         {
             Random random = new Random();
@@ -139,7 +153,7 @@ namespace Task6._8
             string randomPhrase = phrases[random.Next(0, phrases.Length)];
             return randomPhrase;
         }
-
+        
         private static string GetRandomWord()
         {
             Random random = new Random();
